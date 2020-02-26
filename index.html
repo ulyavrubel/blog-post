@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your hidden blog</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <a class="navbar-brand" href="#">Your Hidden Blog</a>
+      <button
+        class="navbar-toggler mobile"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse mobile" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active loggedIn">
+            <a class="nav-link" href="#"
+              >Account <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item active loggedIn">
+            <a class="nav-link" href="#"
+              >Create Post <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item active loggedIn">
+            <a class="nav-link" href="#"
+              >Log out <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item active  loggedOut">
+            <a class="nav-link" href="#"
+              >Log in <span class="sr-only">(current)</span></a
+            >
+          </li>
+
+          <li class="nav-item active loggedOut">
+            <a class="nav-link" href="#"
+              >Sign up <span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <form class="form-inline desktop">
+        <button
+          class="btn btn-outline-primary loggedIn"
+          type="button"
+          data-toggle="modal"
+          data-target="#account-modal"
+        >
+          Account
+        </button>
+        <button
+          class="btn btn-outline-primary loggedIn"
+          type="button"
+          data-toggle="modal"
+          data-target="#createPost-modal"
+        >
+          Create Post
+        </button>
+        <button class="btn btn-outline-primary loggedIn" type="button">
+          Log out
+        </button>
+        <button
+          class="btn btn-outline-primary loggedOut"
+          type="button"
+          data-toggle="modal"
+          data-target="#logIn-Modal"
+        >
+          Log in
+        </button>
+        <button
+          class="btn btn-primary loggedOut"
+          type="button"
+          data-toggle="modal"
+          data-target="#signUp-Modal"
+        >
+          Sign up
+        </button>
+      </form>
+    </nav>
+
+    <!-- account modal -->
+    <div
+      class="modal fade"
+      id="account-modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">
+              Account
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Account info
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- create post -->
+    <div
+      class="modal fade"
+      id="createPost-modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New post</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label"
+                  >Title:</label
+                >
+                <input type="text" class="form-control" id="recipient-name" />
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Post:</label>
+                <textarea
+                  class="form-control"
+                  id="message-text"
+                  rows="12"
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Upload post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- log in -->
+    <div
+      class="modal fade"
+      id="logIn-Modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Log in</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="login-email" class="col-form-label">E-mail:</label>
+                <input type="text" class="form-control" id="login-email" />
+              </div>
+              <div class="form-group">
+                <label for="login-password" class="col-form-label"
+                  >Password:</label
+                >
+                <input type="text" class="form-control" id="login-password" />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Log in</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- sign up -->
+    <div
+      class="modal fade"
+      id="signUp-Modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="signup-email" class="col-form-label">E-mail:</label>
+                <input type="text" class="form-control" id="signup-email" />
+              </div>
+              <div class="form-group">
+                <label for="signup-password" class="col-form-label"
+                  >Password:</label
+                >
+                <input type="text" class="form-control" id="signup-password" />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Sign up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
