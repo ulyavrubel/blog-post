@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-dark bg-primary" >
       <a class="navbar-brand" href="#">Your Hidden Blog</a>
       <button
         class="navbar-toggler mobile"
@@ -61,37 +61,37 @@
 
       <form class="form-inline desktop">
         <button
-          class="btn btn-outline-primary loggedIn"
+          class="btn btn-outline-light loggedIn"
           type="button"
           data-toggle="modal"
-          data-target="#account-modal"
+          data-target="#account-modal" style="display: none;" 
         >
           Account
         </button>
         <button
-          class="btn btn-outline-primary loggedIn"
+          class="btn btn-outline-light loggedIn"
           type="button"
           data-toggle="modal"
-          data-target="#createPost-modal"
+          data-target="#createPost-modal" style="display: none;"
         >
           Create Post
         </button>
-        <button class="btn btn-outline-primary loggedIn" type="button">
+        <button class="btn btn-outline-light loggedIn" type="button" id="logout" style="display: none;">
           Log out
         </button>
         <button
-          class="btn btn-outline-primary loggedOut"
+          class="btn btn-outline-light loggedOut"
           type="button"
           data-toggle="modal"
-          data-target="#logIn-Modal"
+          data-target="#logIn-Modal" style="display: none;"
         >
           Log in
         </button>
         <button
-          class="btn btn-primary loggedOut"
+          class="btn btn-outline-light loggedOut"
           type="button"
           data-toggle="modal"
-          data-target="#signUp-Modal"
+          data-target="#signUp-Modal" style="display: none;"
         >
           Sign up
         </button>
@@ -122,8 +122,8 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            Account info
+          <div class="modal-body" id="account-info">
+            
           </div>
           <div class="modal-footer">
             <button
@@ -133,7 +133,7 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            
           </div>
         </div>
       </div>
@@ -161,7 +161,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
+            <form id="createPost-form">
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label"
                   >Title:</label
@@ -214,28 +214,18 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="login-email" class="col-form-label">E-mail:</label>
-                <input type="text" class="form-control" id="login-email" />
-              </div>
-              <div class="form-group">
-                <label for="login-password" class="col-form-label"
-                  >Password:</label
-                >
-                <input type="text" class="form-control" id="login-password" />
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="submit" class="btn btn-primary">Log in</button>
+            <form id="login-form">
+                <div class="form-group">
+                  <label for="login-email">Email address</label>
+                  <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="login-password">Password</label>
+                  <input type="password" class="form-control" id="login-password">
+                </div>                
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>            
           </div>
         </div>
       </div>
@@ -263,29 +253,19 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="signup-email" class="col-form-label">E-mail:</label>
-                <input type="text" class="form-control" id="signup-email" />
-              </div>
-              <div class="form-group">
-                <label for="signup-password" class="col-form-label"
-                  >Password:</label
-                >
-                <input type="text" class="form-control" id="signup-password" />
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="submit" class="btn btn-primary">Sign up</button>
-          </div>
+            <form id="signup-form">
+                <div class="form-group">
+                  <label for="signup-email">Email address</label>
+                  <input type="email" class="form-control" id="signup-email" aria-describedby="emailHelp">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="signup-password">Password</label>
+                  <input type="password" class="form-control" id="signup-password">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>            
         </div>
       </div>
     </div>
@@ -304,5 +284,32 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAMqU9XxQhidBTIlV-nc8AE6Vz_V57sf_g",
+        authDomain: "hiddenblogpost.firebaseapp.com",
+        databaseURL: "https://hiddenblogpost.firebaseio.com",
+        projectId: "hiddenblogpost",
+        storageBucket: "hiddenblogpost.appspot.com",
+        messagingSenderId: "734074475256",
+        appId: "1:734074475256:web:1573423240eebfe557a10d"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      //referense to auth and database
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+    </script>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/auth.js"></script>
   </body>
 </html>
