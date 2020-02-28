@@ -32,7 +32,6 @@ singupForm.addEventListener("submit", e => {
   auth
     .createUserWithEmailAndPassword(email, password)
     .then(cred => {
-      console.log(cred.user);
       $("#signUp-Modal").modal("hide");
       singupForm.reset();
     })
@@ -45,7 +44,7 @@ singupForm.addEventListener("submit", e => {
 const logoutButton = document.getElementById("logout");
 logoutButton.addEventListener("click", e => {
   e.preventDefault();
-  auth.signOut().then(console.log("user is signed out"));
+  auth.signOut();
 });
 
 //login
@@ -57,7 +56,6 @@ loginForm.addEventListener("submit", e => {
   auth
     .signInWithEmailAndPassword(email, password)
     .then(cred => {
-      console.log(cred);
       $("#logIn-Modal").modal("hide");
       singupForm.reset();
     })
@@ -81,7 +79,6 @@ createPostForm.addEventListener("submit", e => {
       dateforSorting: new Date()
     })
     .then(cred => {
-      console.log(cred);
       $("#createPost-modal").modal("hide");
       createPostForm.reset();
     })
