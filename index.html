@@ -97,6 +97,11 @@
         </button>
       </form>
     </nav>
+    <main>
+      <div id="postCardsContainer">
+
+      </div>
+    </main>
 
     <!-- account modal -->
     <div
@@ -166,19 +171,20 @@
                 <label for="recipient-name" class="col-form-label"
                   >Title:</label
                 >
-                <input type="text" class="form-control" id="recipient-name" />
+                <input type="text" class="form-control" id="post-title" />
               </div>
               <div class="form-group">
                 <label for="message-text" class="col-form-label">Post:</label>
                 <textarea
                   class="form-control"
-                  id="message-text"
+                  id="post-text"
                   rows="12"
                 ></textarea>
               </div>
+              <button type="submit" class="btn btn-primary">Upload post</button>
             </form>
           </div>
-          <div class="modal-footer">
+          <!-- <div class="modal-footer">
             <button
               type="button"
               class="btn btn-secondary"
@@ -186,8 +192,8 @@
             >
               Close
             </button>
-            <button type="submit" class="btn btn-primary">Upload post</button>
-          </div>
+            
+          </div> -->
         </div>
       </div>
     </div>
@@ -269,6 +275,7 @@
         </div>
       </div>
     </div>
+    
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

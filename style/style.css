@@ -5,6 +5,18 @@
   display: block;
 }
 
+#logout-p {
+  text-align: center;
+  margin-top: 20vh;
+}
+
+.card {
+  width: 80%;
+
+  margin: auto;
+  margin-top: 30px;
+}
+
 @media (max-width: 800px) {
   .mobile {
     display: block;
